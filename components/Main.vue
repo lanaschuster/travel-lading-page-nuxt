@@ -31,26 +31,6 @@
             </div>
           </div>
         </section>
-
-        <div id="popup" ref="popup" class="islands__popup">
-          <div>
-            <div
-              id="popup-close"
-              class="islands__popup-close"
-              @click="closePopUp"
-            >
-              <i class="bx bx-x"></i>
-            </div>
-            <iframe
-              class="islands__popup-video"
-              :src="videoUrl"
-              title="YouTube"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -66,14 +46,19 @@
         />
       </div>
     </div>
+    <VideoPopUp :videoUrl="videoUrl" @close="videoUrl = ''" />
   </main>
 </template>
 
 <script>
+import VideoPopUp from './VideoPopUp.vue'
 import Swiper from '@/assets/js/swiper-bundle.min.js'
 import gsap from '@/assets/js/gsap.min.js'
 
 export default {
+  components: {
+    VideoPopUp
+  },
   data() {
     return {
       swiper: null,
@@ -92,6 +77,14 @@ export default {
           subtitulo: 'Foz do Iguaçu',
           titulo: 'Itaipu Binacional',
           imagem: '/img/itaipu.jpg',
+          alt: '',
+          descricao: 'Small South Pacific island northwest of Tahiti in French Polynesia, surrounded by motus.',
+          videoUrl: 'https://www.youtube.com/embed/5Kejx8uZ9pg'
+        },
+        {
+          subtitulo: 'Foz do Iguaçu',
+          titulo: 'Parque das Aves',
+          imagem: '/img/parque_das_aves.jpg',
           alt: '',
           descricao: 'Small South Pacific island northwest of Tahiti in French Polynesia, surrounded by motus.',
           videoUrl: 'https://www.youtube.com/embed/5Kejx8uZ9pg'
@@ -123,13 +116,6 @@ export default {
   methods: {
     popUp(videoUrl) {
       this.videoUrl = videoUrl
-      const modal = this.$refs.popup
-      modal.classList.add('show-popup')
-    },
-    closePopUp() {
-      const modal = this.$refs.popup
-      modal.classList.remove('show-popup')
-      this.videoUrl = ''
     },
     scrollAnimation() {
       gsap.from('.islands__subtitle', {
@@ -167,7 +153,7 @@ export default {
         y: -20,
       })
 
-      this.closePopUp()
+      this.videoUrl = ''
     },
   },
 }
@@ -246,31 +232,7 @@ export default {
   font-size: 1.8rem;
   color: var(--first-color);
 }
-.islands__popup {
-  display: none;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--first-color-lighter);
-  padding: 1rem 0.75rem;
-  border-radius: 1rem;
-}
-.islands__popup-close {
-  position: absolute;
-  top: -0.75rem;
-  right: -0.75rem;
-  display: inline-flex;
-  padding: 0.35rem;
-  background-color: var(--first-color);
-  color: var(--first-color-lighter);
-  font-size: 1.2rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.show-popup {
-  display: block;
-}
+
 .controls__img {
   width: 35px;
   height: 35px;
