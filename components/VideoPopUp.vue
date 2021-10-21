@@ -46,6 +46,7 @@ export default {
   background-color: var(--first-color-lighter);
   padding: 1rem 0.75rem;
   border-radius: 1rem;
+  z-index: 300;
 }
 .islands__popup-close {
   position: absolute;

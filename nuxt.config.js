@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Venha para Foz do Iguaçu',
+    title: 'Visite Foz do Iguaçu',
     htmlAttrs: {
       lang: 'en'
     },

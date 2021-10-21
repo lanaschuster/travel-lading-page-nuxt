@@ -19,7 +19,7 @@
               <p class="islands__description">
                 {{ item.descricao }}
               </p>
-              <a href="#" class="islands__button">
+              <a :href="item.link" target="_blank" class="islands__button">
                 Explore
                 <i class="bx bx-right-arrow-alt islands__button-icon"></i>
               </a>
@@ -70,32 +70,36 @@ export default {
           titulo: 'Cataratas do Iguaçu',
           imagem: '/img/pexels-rodolfo-clix.jpg',
           alt: 'Cataratas do Iguaçu - Imagem de Rodolfo Clix',
-          descricao: 'Small South Pacific island northwest of Tahiti in French Polynesia, surrounded by motus.',
-          videoUrl: 'https://www.youtube.com/embed/ZnJRpYd5NAU'
+          descricao: 'Conjunto de cerca de 275 quedas de água no rio Iguaçu localizado entre o Brasil e Argentina.',
+          videoUrl: 'https://www.youtube.com/embed/ZnJRpYd5NAU',
+          link: 'https://cataratasdoiguacu.com.br/'
         },
         {
           subtitulo: 'Foz do Iguaçu',
           titulo: 'Itaipu Binacional',
           imagem: '/img/itaipu.jpg',
-          alt: '',
-          descricao: 'Small South Pacific island northwest of Tahiti in French Polynesia, surrounded by motus.',
-          videoUrl: 'https://www.youtube.com/embed/5Kejx8uZ9pg'
+          alt: 'Itaipu Binacional',
+          descricao: 'Usina hidrelétrica binacional localizada no Rio Paraná, na fronteira entre o Brasil e o Paraguai. ',
+          videoUrl: 'https://www.youtube.com/embed/5Kejx8uZ9pg',
+          link: 'https://www.itaipu.gov.br/'
         },
         {
           subtitulo: 'Foz do Iguaçu',
           titulo: 'Parque das Aves',
           imagem: '/img/parque_das_aves.jpg',
-          alt: '',
-          descricao: 'Small South Pacific island northwest of Tahiti in French Polynesia, surrounded by motus.',
-          videoUrl: 'https://www.youtube.com/embed/5Kejx8uZ9pg'
+          alt: 'Parque das Aves',
+          descricao: 'Situado próximo às Cataratas do rio Iguaçu, possui 16 hectares de mata nativa, com 1 500 animais de 140 espécies diferentes, entre aves, répteis e mamíferos.',
+          videoUrl: 'https://www.youtube.com/embed/YGoQIvGrRWM',
+          link: 'https://www.parquedasaves.com.br/'
         },
         {
           subtitulo: 'Foz do Iguaçu',
-          titulo: 'Tríplice Fronteira',
+          titulo: 'Marco das Três Fronteiras',
           imagem: '/img/marco-das-tres-fronteiras2.jpg',
-          alt: '',
-          descricao: 'Small South Pacific island northwest of Tahiti in French Polynesia, surrounded by motus.',
-          videoUrl: 'https://www.youtube.com/embed/6GBVaHH_6bQ'
+          alt: 'Marco das Três Fronteiras',
+          descricao: 'Onde encontram-se os rios Iguaçu e Paraná, porém mais do que isso, encontram-se três grandes nações da América do Sul: Argentina, Brasil e Paraguai',
+          videoUrl: 'https://www.youtube.com/embed/xB_sokYalyQ',
+          link: 'https://marcodastresfronteiras.com.br/'
         }
       ]
     }
