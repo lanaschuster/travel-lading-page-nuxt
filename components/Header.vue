@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <nav class="nav bd-container">
-      <a href="" class="nav__logo">Travel</a>
+      <a href="" class="nav__logo">Foz do Iguaçu</a>
       <div id="nav-menu" ref="navMenu" class="nav__menu">
         <ul class="nav__list">
           <li class="nav__item">
@@ -24,7 +24,7 @@
         class="nav__toggle"
         @click="showMenu"
       >
-        <i class="uil uil-bars"></i>
+        <i class="bx bx-menu"></i>
       </div>
     </nav>
   </header>

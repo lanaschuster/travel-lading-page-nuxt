@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'travel-landing-page',
+    title: 'Venha para Foz do Iguaçu',
     htmlAttrs: {
       lang: 'en'
     },
@@ -13,7 +13,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://unicons.iconscout.com/release/v4.0.0/css/line.css' }
+      { rel: 'stylesheet', href: 'https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' }
     ]
   },
 
