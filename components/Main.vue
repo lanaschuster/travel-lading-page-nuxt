@@ -2,19 +2,22 @@
   <main class="main">
     <div class="swiper top">
       <div class="swiper-wrapper">
-        <section class="islands swiper-slide">
+        <section 
+          v-for="(item, i) in items"
+          :key="`destino_${i}`"
+          class="islands swiper-slide"
+        >
           <img
-            src="/img/pexels-rodolfo-clix.jpg"
-            alt="Cataratas do Iguaçu - Imagem de Rodolfo Clix"
+            :src="item.imagem"
+            :alt="item.alt"
             class="islands__bg"
           />
           <div class="islands__container bd-container">
             <div class="islands__data">
-              <h2 class="islands__subtitle">Foz do Iguaçu</h2>
-              <h1 class="islands__title">Cataratas do Iguaçu</h1>
+              <h2 class="islands__subtitle">{{ item.subtitulo }}</h2>
+              <h1 class="islands__title">{{ item.titulo }}</h1>
               <p class="islands__description">
-                Small South Pacific island northwest of Tahiti in French
-                Polynesia, surrounded by motus.
+                {{ item.descricao }}
               </p>
               <a href="#" class="islands__button">
                 Explore
@@ -22,53 +25,7 @@
               </a>
             </div>
             <div class="islands__video">
-              <div class="islands__video-content" @click="popUp">
-                <i class="bx bx-play-circle islands__video-icon"></i>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="islands swiper-slide">
-          <img src="/img/itaipu.jpg" alt="" class="islands__bg" />
-          <div class="islands__container bd-container">
-            <div class="islands__data">
-              <h2 class="islands__subtitle">Foz do Iguaçu</h2>
-              <h1 class="islands__title">Itaipu Binacional</h1>
-              <p class="islands__description">
-                It is an Indonesian island known and beautiful for its lush
-                active volcanic mountains.
-              </p>
-              <a href="#" class="islands__button"
-                >Explore
-                <i class="bx bx-right-arrow-alt islands__button-icon"></i
-              ></a>
-            </div>
-            <div class="islands__video">
-              <div class="islands__video-content" @click="popUp">
-                <i class="bx bx-play-circle islands__video-icon"></i>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="islands swiper-slide">
-          <img src="/img/marco-das-tres-fronteiras2.jpg" alt="" class="islands__bg" />
-          <div class="islands__container bd-container">
-            <div class="islands__data">
-              <h2 class="islands__subtitle">Foz do Iguaçu</h2>
-              <h1 class="islands__title">Tríplice Fronteira</h1>
-              <p class="islands__description">
-                Also known as La Paragua, it is the largest island in the
-                province of Palawan.
-              </p>
-              <a href="#" class="islands__button"
-                >Explore
-                <i class="bx bx-right-arrow-alt islands__button-icon"></i
-              ></a>
-            </div>
-            <div class="islands__video">
-              <div class="islands__video-content" @click="popUp">
+              <div class="islands__video-content" @click="popUp(item.videoUrl)">
                 <i class="bx bx-play-circle islands__video-icon"></i>
               </div>
             </div>
@@ -86,8 +43,8 @@
             </div>
             <iframe
               class="islands__popup-video"
-              src="https://www.youtube.com/embed/6GBVaHH_6bQ"
-              title="YouTube video player"
+              :src="videoUrl"
+              title="YouTube"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -100,21 +57,11 @@
     <div class="controls thumbs">
       <div class="controls__container swiper-wrapper">
         <img
+          v-for="(item, i) in items"
+          :key="`thumb_${i}`"
           class="controls__img swiper-slide"
-          src="/img/pexels-rodolfo-clix.jpg"
-          alt="Cataratas do Iguaçu"
-          @click="scrollAnimation"
-        />
-        <img
-          class="controls__img swiper-slide"
-          src="/img/itaipu.jpg"
-          alt="Bali"
-          @click="scrollAnimation"
-        />
-        <img
-          class="controls__img swiper-slide"
-          src="/img/marco-das-tres-fronteiras2.jpg"
-          alt="Palawan"
+          :src="item.imagem"
+          :alt="item.alt"
           @click="scrollAnimation"
         />
       </div>
@@ -131,6 +78,33 @@ export default {
     return {
       swiper: null,
       thumbs: {},
+      videoUrl: '',
+      items: [
+        {
+          subtitulo: 'Foz do Iguaçu',
+          titulo: 'Cataratas do Iguaçu',
+          imagem: '/img/pexels-rodolfo-clix.jpg',
+          alt: 'Cataratas do Iguaçu - Imagem de Rodolfo Clix',
+          descricao: 'Small South Pacific island northwest of Tahiti in French Polynesia, surrounded by motus.',
+          videoUrl: 'https://www.youtube.com/embed/ZnJRpYd5NAU'
+        },
+        {
+          subtitulo: 'Foz do Iguaçu',
+          titulo: 'Itaipu Binacional',
+          imagem: '/img/itaipu.jpg',
+          alt: '',
+          descricao: 'Small South Pacific island northwest of Tahiti in French Polynesia, surrounded by motus.',
+          videoUrl: 'https://www.youtube.com/embed/5Kejx8uZ9pg'
+        },
+        {
+          subtitulo: 'Foz do Iguaçu',
+          titulo: 'Tríplice Fronteira',
+          imagem: '/img/marco-das-tres-fronteiras2.jpg',
+          alt: '',
+          descricao: 'Small South Pacific island northwest of Tahiti in French Polynesia, surrounded by motus.',
+          videoUrl: 'https://www.youtube.com/embed/6GBVaHH_6bQ'
+        }
+      ]
     }
   },
   mounted() {
@@ -147,13 +121,15 @@ export default {
     }
   },
   methods: {
-    popUp() {
+    popUp(videoUrl) {
+      this.videoUrl = videoUrl
       const modal = this.$refs.popup
       modal.classList.add('show-popup')
     },
     closePopUp() {
       const modal = this.$refs.popup
       modal.classList.remove('show-popup')
+      this.videoUrl = ''
     },
     scrollAnimation() {
       gsap.from('.islands__subtitle', {
