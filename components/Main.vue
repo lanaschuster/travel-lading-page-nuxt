@@ -71,13 +71,13 @@ export default {
           imagem: '/img/pexels-rodolfo-clix.jpg',
           alt: 'Cataratas do Iguaçu - Imagem de Rodolfo Clix',
           descricao: 'Conjunto de cerca de 275 quedas de água no rio Iguaçu localizado entre o Brasil e Argentina.',
-          videoUrl: 'https://www.youtube.com/embed/ZnJRpYd5NAU',
+          videoUrl: 'https://www.youtube.com/embed/mwufrBb90BU',
           link: 'https://cataratasdoiguacu.com.br/'
         },
         {
           subtitulo: 'Foz do Iguaçu',
           titulo: 'Itaipu Binacional',
-          imagem: '/img/itaipu.jpg',
+          imagem: '/img/Itaipu.jpg',
           alt: 'Itaipu Binacional',
           descricao: 'Usina hidrelétrica binacional localizada no Rio Paraná, na fronteira entre o Brasil e o Paraguai. ',
           videoUrl: 'https://www.youtube.com/embed/5Kejx8uZ9pg',
