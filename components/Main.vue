@@ -148,6 +148,8 @@ export default {
         delay: .6,
         y: -20
       })
+
+      this.closePopUp()
     }
   }
 }
@@ -268,4 +270,67 @@ export default {
   align-items: center;
   column-gap: 1rem;
 }
+@media screen and (max-width: 320px) {
+  .controls__container {
+    column-gap: .25rem;
+  }
+  .islands__popup-video {
+    width: 230px;
+    height: 100px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .islands__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .islands__description {
+    padding-right: 5rem;
+    margin-bottom: 2rem;
+  }
+  .islands__video{
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .islands__video-icon {
+    font-size: 3rem;
+  }
+  .islands__popup-video {
+    width: 500px;
+    height: 250px;
+  }
+  .islands__popup-close {
+    font-size: 1.5rem;
+  }
+  .controls{
+    padding: 0.5rem;
+    border-radius: 1.25rem;
+  }
+  .controls__container{
+    column-gap: 1.5rem;
+  }
+  .controls__img {
+    width: 45px;
+    height: 45px;
+  }
+  .controls__img {
+    width: 45px;
+    height: 45px;
+    border-radius: .75rem;
+  }
+  .swiper-slide-thumb-active{
+    width: 55px;
+    height: 55px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .islands__description{
+    padding-right: 11rem;
+  }
+}
+/* @media screen and (min-width: 721px) {
+  .islands{
+    height: 640px;
+  }
+} */
 </style>

@@ -42,3 +42,24 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@media screen and (min-width: 768px) {
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav__list {
+    display: flex;
+  }
+  .nav__item {
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
+  .nav__link{
+    color: var(--first-color-lighter);
+  }
+  .nav__toggle{
+    display: none;
+  }
+}
+</style>
